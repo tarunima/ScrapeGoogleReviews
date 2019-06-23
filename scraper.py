@@ -102,18 +102,18 @@ for i in range(500):
                 review_pth = ("/html/body/div[1]/div[4]/c-wiz/div/div[2]/div/div[1]/div/div/div[1]/div[2]/div/div[" + str(k) +"]/div/div[2]/div[2]/span[2]")
                 review = driver.find_element_by_xpath(review_pth).text
                                
-            with open('Iteration 3/scrapedData/debug/'+appname+'_username.csv',"a") as output_file:
+            with open('debug/'+appname+'_username.csv',"a") as output_file:
                 json.dump({"username": username},output_file)
-            with open('Iteration 3/scrapedData/debug/'+appname+'_rating.csv',"a") as output_file:
+            with open('debug/'+appname+'_rating.csv',"a") as output_file:
                 json.dump({"dump_rating": rating},output_file)
-            with open('Iteration 3/scrapedData/debug/'+appname+'_date.csv',"a") as output_file:
+            with open('debug/'+appname+'_date.csv',"a") as output_file:
                 json.dump({"date": date},output_file)
-            with open('Iteration 3/scrapedData/debug/'+appname+'_review.csv',"a") as output_file:
+            with open('debug/'+appname+'_review.csv',"a") as output_file:
                 json.dump({"text": review},output_file)
             
             tmp = [appname, username, rating, review, date]
     
-            with open('Iteration 3/'+appname+'.csv',"a") as output_file:
+            with open(appname+'.csv',"a") as output_file:
                 fieldnames = ['app_name', 'username', 'rating','review', 'date']
                 #output_file.write(str(tmp) + '\n')
                 writer = csv.DictWriter(output_file, delimiter=',',fieldnames=fieldnames)
@@ -121,7 +121,7 @@ for i in range(500):
                 print("saved data for:",username)
                 print("\n")
                 
-            with open('Iteration 3/'+appname+'.json',"a") as output_file:
+            with open(appname+'.json',"a") as output_file:
                 json.dump(tmp,output_file)
         
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
