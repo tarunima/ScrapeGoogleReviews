@@ -20,38 +20,19 @@ from lxml import html
 import codecs
 import csv
 
-# 
-# class SessionRemote(webdriver.Remote):
-#     def start_session(self, desired_capabilities, browser_profile=None):
-#         # Skip the NEW_SESSION command issued by the original driver
-#         # and set only some required attributes
-#         self.w3c = True
-#         
-#export PATH=$PATH:~/anaconda/gecko_selenium/
-
-#profile = webdriver.FirefoxProfile()
-#profile.set_preference("permissions.default.image", 2)
-#driver = webdriver.Firefox(firefox_profile=profile)
 
 chromedriver = './chromedriver'
 options = webdriver.ChromeOptions()
 options.add_argument('headless')
 
-url = "http://127.0.0.1:49637"
-session_id = "5a398aec490d6748b2e3b6b0ba5a4958"
-
-http://127.0.0.1:56607
-14c509bbd20fdb5f81f713d3a70a9f8f
-
-
+url = ""  # Enter url provided by scraper.py
+session_id = "" #Enter session_id provided by scraper.py
 
 driver = webdriver.Remote(command_executor=url,desired_capabilities={})
 driver.session_id = session_id
 
 
-appname= "moneyview"
-
-
+appname= "" #Enter app name (should be same as that used in scraper.py
 
 wait = WebDriverWait(driver, 10)
 SCROLL_PAUSE_TIME = 0.5
@@ -60,7 +41,7 @@ SCROLL_PAUSE_TIME = 0.5
 last_height = driver.execute_script("return document.body.scrollHeight")
 
 # Counter for number of reviews scraped:
-k = 11360   
+k = # Enter the review number that the scraper.py last saved.
 
 for i in range(100):
 
