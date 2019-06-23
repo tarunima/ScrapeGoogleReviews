@@ -21,16 +21,14 @@ import codecs
 import csv
 
 
-#export PATH=$PATH:~/anaconda/chromeDriver/
-
 chromedriver = './chromedriver'
 options = webdriver.ChromeOptions()
 #options.add_argument('headless')
 options.add_argument('window-size=1200x600') # optional
 driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=options)
 
-driver.get("https://play.google.com/store/apps/details?id=com.mycash.moneytap.app&showAllReviews=true")
-appname= "moneytap"
+driver.get("https://play.google.com/store/apps/details?id=APP_ID&showAllReviews=true")  # Replace APP_ID with ID of app of interest
+appname= "  " # The name of the app- the json files will be named as per this field
 
 wait = WebDriverWait(driver, 10)
 SCROLL_PAUSE_TIME = 0.5
@@ -45,8 +43,6 @@ time.sleep(1)
 
 url = driver.command_executor._url       
 session_id = driver.session_id      
-
-
 
 print(url)
 print(session_id)
@@ -114,12 +110,6 @@ for i in range(500):
                 json.dump({"date": date},output_file)
             with open('Iteration 3/scrapedData/debug/'+appname+'_review.csv',"a") as output_file:
                 json.dump({"text": review},output_file)
-            #tmp = []
-            # tmp.append({"app_name":appname,
-            # "username":username,
-            # "rating":rating,
-            # "review":review,
-            # "date":date})
             
             tmp = [appname, username, rating, review, date]
     
