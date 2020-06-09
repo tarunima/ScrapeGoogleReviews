@@ -1,6 +1,6 @@
 # ScrapePlayStoreReviews
 
-APIs to extract reviews from Google Play Store don't work beyond Page 111. This scraper is intended to scrape ALL reviews from an app. It works by automating the human action of scrolling play store reviews (via Selenium) and saving each review visible on the page.
+APIs to extract reviews from Google Play Store don't work beyond Page 111. This scraper is intended to scrape all reviews from an app. It works by automating the human action of scrolling play store reviews (via Selenium) and saving each review visible on the page.
 
 
 ## Prerequisites
